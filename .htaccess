@@ -1,0 +1,16 @@
+Options -Indexes
+<IfModule mod_php.c>
+  php_value upload_max_filesize 210M
+  php_value post_max_size 220M
+  php_value max_execution_time 300
+</IfModule>
+<IfModule mod_php8.c>
+  php_value upload_max_filesize 210M
+  php_value post_max_size 220M
+  php_value max_execution_time 300
+</IfModule>
+<FilesMatch "(?i)\.(sql|log|txt|md)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+</FilesMatch>

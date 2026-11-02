@@ -1,0 +1,98 @@
+/* =====================================================================
+   CLUB MEDIA — ISET GAFSA  |  Adaptations responsive
+   Points de contrôle : 1440 / 1024 / 768 / 375 px
+   ===================================================================== */
+
+/* ≤ 1100px : tablettes paysage / petits portables */
+@media (max-width: 1100px) {
+  .grid-4, .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .media-grid { grid-template-columns: repeat(3, 1fr); }
+  .event-layout { grid-template-columns: 1fr 330px; gap: 28px; }
+  .filters { grid-template-columns: 1fr 1fr 1fr; }
+  .filters .field--search { grid-column: 1 / -1; }
+  .site-footer__grid { grid-template-columns: 1fr 1fr; }
+  .site-footer__about { grid-column: 1 / -1; }
+}
+
+/* ≤ 960px : menu mobile */
+@media (max-width: 960px) {
+  :root { --header-h: 68px; }
+  .nav-toggle { display: block; }
+  .primary-nav {
+    position: fixed; inset: var(--header-h) 0 0 0; flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 20px;
+    padding: 24px 20px 40px; background: rgba(9, 9, 15, .97); backdrop-filter: blur(20px);
+    overflow-y: auto; transform: translateX(100%); visibility: hidden; transition: transform .35s ease, visibility .35s;
+  }
+  .primary-nav.is-open { transform: none; visibility: visible; }
+  body.nav-open { overflow: hidden; }
+  .primary-nav__list { flex-direction: column; align-items: stretch; gap: 4px; }
+  .primary-nav__list > li > a, .dropdown-toggle { width: 100%; justify-content: space-between; padding: 16px 18px; font-size: 1.1rem; min-height: 54px; border-radius: 14px; }
+  .primary-nav__mobile-only { display: block; }
+  .dropdown { position: static; opacity: 1; visibility: visible; transform: none; display: none; box-shadow: none; background: transparent; border: 0; padding: 0 0 0 14px; }
+  .has-dropdown.is-open .dropdown { display: block; }
+  .has-dropdown:hover .dropdown { display: none; }
+  .has-dropdown.is-open:hover .dropdown { display: block; }
+  .dropdown a { padding: 14px; font-size: 1.05rem; }
+  .primary-nav__actions { flex-direction: column; align-items: stretch; }
+  .primary-nav__actions .icon-link { display: none; }
+  .primary-nav__actions .btn { min-height: 52px; }
+
+  .event-layout { grid-template-columns: 1fr; }
+  .side-card { position: static; }
+  .split, .contact-layout { grid-template-columns: 1fr; gap: 32px; }
+  .values { grid-template-columns: 1fr; }
+}
+
+/* ≤ 768px : tablettes portrait */
+@media (max-width: 768px) {
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  .stats { grid-template-columns: repeat(2, 1fr); margin-top: -40px; }
+  .media-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 170px; }
+  .media-tile:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+  .media-tile:nth-child(6) { grid-column: auto; }
+  .form-row { grid-template-columns: 1fr; }
+  .filters { grid-template-columns: 1fr 1fr; padding: 18px; }
+  .ticket { grid-template-columns: 1fr; }
+  .ticket::before, .ticket::after { display: none; }
+  .ticket__main { border-right: 0; border-bottom: 2px dashed rgba(167, 139, 250, .4); padding: 24px 22px; }
+  .res-item { grid-template-columns: 1fr; }
+  .masonry { columns: 2 160px; }
+  .event-hero__img { aspect-ratio: 16 / 10; }
+  .overlay__nav { width: 44px; height: 44px; }
+  .overlay__nav--prev { left: 8px; } .overlay__nav--next { right: 8px; }
+}
+
+/* ≤ 560px : téléphones (375px visé) */
+@media (max-width: 560px) {
+  .container { width: calc(100% - 32px); }
+  .grid-3, .grid-4, .team-grid { grid-template-columns: 1fr; }
+  .team-grid { max-width: 360px; margin-inline: auto; }
+  .hero { min-height: 92svh; }
+  .hero__content { padding-bottom: 80px; }
+  .hero__actions .btn { width: 100%; }
+  .filters { grid-template-columns: 1fr; }
+  .site-footer__grid { grid-template-columns: 1fr; gap: 34px; }
+  .site-footer__bottom { flex-direction: column; }
+  .section-head { margin-bottom: 32px; }
+  .event-card__foot { flex-wrap: wrap; }
+  .ticket__grid { grid-template-columns: 1fr; }
+  .masonry { columns: 2 140px; column-gap: 10px; }
+  .masonry__item { margin-bottom: 10px; }
+  .stat { padding: 22px 10px; }
+  .cta-band { border-radius: 22px; }
+  .side-card, .contact-card, .about-box { padding: 22px; }
+  .pagination a, .pagination .is-current { min-width: 40px; height: 40px; }
+  .btn { min-height: 48px; }
+  .btn-sm { min-height: 42px; }
+}
+
+/* Écrans larges 1440px+ */
+@media (min-width: 1440px) {
+  .container { width: min(1280px, 100% - 80px); }
+}
+
+/* Appareils tactiles : zones de toucher confortables, pas d'effets de survol bloquants */
+@media (hover: none) {
+  .event-card:hover, .video-card:hover, .team-card:hover { transform: none; }
+  .media-tile__label, .masonry__cap { opacity: 1; }
+}
